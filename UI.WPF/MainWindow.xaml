@@ -18,6 +18,11 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Button Content="Products" Command="{Binding ChangeViewCommand}" CommandParameter="Products"/>
             <Button Content="Producers" Command="{Binding ChangeViewCommand}" CommandParameter="Producers"/>
+            <Button Content="Add" Command="{Binding AddCommand}"/>
+            <Button Content="Modify" Command="{Binding ModifyCommand}"/>
+            <Button Content="Delete" Command="{Binding DeleteCommand}"/>
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
+            <Button Content="Search" Command="{Binding SearchCommand}"/>
         </StackPanel>
         <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
     </Grid>
