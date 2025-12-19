@@ -17,10 +17,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/BL/Class1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BL/Services/CeramicService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BL/Services/ProducerService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Enums/CeramicsCatalogue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Enums/Country.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Enums/FiringType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DAO/Class1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAO/Context/CeramicsDbContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAO/Entities/CeramicItemDo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAO/Entities/ProducerDo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1764878865896</updated>
       <workItem from="1764878867849" duration="1459000" />
-      <workItem from="1766143114687" duration="1698000" />
+      <workItem from="1766143114687" duration="2190000" />
     </task>
     <servers />
   </component>
