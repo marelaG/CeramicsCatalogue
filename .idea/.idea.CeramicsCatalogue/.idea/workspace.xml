@@ -21,7 +21,15 @@
     <setting file="file://$PROJECT_DIR$/Core/Enums/Country.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Enums/FiringType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAO/Class1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Interfaces/Class1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DAO/Context/CeramicsDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DAO/Entities/CeramicItemDo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DAO/Entities/ProducerDo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DAO/Repositories/CeramicsRepositoryEf.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DAO/Repositories/ProducerRepositoryEf.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Interfaces/Entities/ICeramicItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Interfaces/Entities/IProducer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Interfaces/Repositories/ICeramicRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Interfaces/Repositories/IProducerRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UI.WPF/Class1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Web/Class1.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -57,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1764878865896</updated>
       <workItem from="1764878867849" duration="1459000" />
-      <workItem from="1766143114687" duration="607000" />
+      <workItem from="1766143114687" duration="1698000" />
     </task>
     <servers />
   </component>
