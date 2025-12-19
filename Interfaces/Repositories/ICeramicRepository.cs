@@ -1,6 +1,6 @@
-using Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 
-namespace Interfaces.Repositories;
+namespace GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 
 public interface ICeramicRepository
 {

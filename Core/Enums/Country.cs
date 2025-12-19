@@ -1,4 +1,4 @@
-namespace Core.Enums;
+namespace GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
 
 public enum Country
 {

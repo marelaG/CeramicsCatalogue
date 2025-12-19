@@ -1,6 +1,6 @@
-using Core.Enums;
+using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
 
-namespace Interfaces.Entities;
+namespace GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 
 public interface IProducer
 {

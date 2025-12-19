@@ -1,5 +1,5 @@
-using Core.Enums;
-namespace Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
+namespace GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 
 public interface ICeramicItem
 {

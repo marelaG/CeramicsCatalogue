@@ -1,7 +1,7 @@
-using DAO.Context;
-using DAO.Entities;
-using Interfaces.Entities;
-using Interfaces.Repositories;
+using GancewskaKerebinska.CeramicsCatalogue.DAO.Context;
+using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 
 namespace DAO.Repositories
 {

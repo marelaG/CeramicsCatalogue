@@ -1,6 +1,8 @@
-using Interfaces.Repositories;
-using Interfaces.Entities;
-using DAO.Context;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.DAO.Context;
+using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
+
 
 namespace DAO.Repositories
 {
@@ -15,14 +17,14 @@ namespace DAO.Repositories
         public void Add(ICeramicItem item)
         {
             using var ctx = new CeramicsDbContext();
-            ctx.CeramicItems.Add((Entities.CeramicItemDo)item);
+            ctx.CeramicItems.Add((CeramicItemDo)item);
             ctx.SaveChanges();
         }
 
         public void Update(ICeramicItem item)
         {
             using var ctx = new CeramicsDbContext();
-            ctx.CeramicItems.Update((Entities.CeramicItemDo)item);
+            ctx.CeramicItems.Update((CeramicItemDo)item);
             ctx.SaveChanges();
         }
 

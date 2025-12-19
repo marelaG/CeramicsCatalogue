@@ -9,11 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="ViewModels\" />
-      <Folder Include="Views\" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <ProjectReference Include="..\BL\BL.csproj" />
       <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     </ItemGroup>
 

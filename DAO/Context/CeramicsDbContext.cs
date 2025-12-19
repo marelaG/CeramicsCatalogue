@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using DAO.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 
-namespace DAO.Context
+namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Context
 {
     public class CeramicsDbContext : DbContext
     {

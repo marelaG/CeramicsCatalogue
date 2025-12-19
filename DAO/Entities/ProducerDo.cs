@@ -1,7 +1,7 @@
-using Core.Enums;
-using Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 
-namespace DAO.Entities
+namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Entities
 {
     public class ProducerDo : IProducer
     {

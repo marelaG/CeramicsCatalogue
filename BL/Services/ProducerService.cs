@@ -1,7 +1,7 @@
-using Interfaces.Entities;
-using Interfaces.Repositories;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 
-namespace BL.Services
+namespace GancewskaKerebinska.CeramicsCatalogue.BL.Services
 {
     public class ProducerService
     {

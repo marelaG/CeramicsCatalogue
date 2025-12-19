@@ -1,8 +1,8 @@
 using System.Configuration;
 using System.Reflection;
-using Interfaces.Repositories;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 
-namespace UI.WPF
+namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF
 {
     public static class Bootstrapper
     {
