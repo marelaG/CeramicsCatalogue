@@ -1,0 +1,24 @@
+<Window x:Class="GancewskaKerebinska.CeramicsCatalogue.UI.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF"
+        xmlns:viewModels="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels"
+        mc:Ignorable="d"
+        Title="Ceramics Catalogue" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModels:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Content="Products" Command="{Binding ChangeViewCommand}" CommandParameter="Products"/>
+            <Button Content="Producers" Command="{Binding ChangeViewCommand}" CommandParameter="Producers"/>
+        </StackPanel>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
+    </Grid>
+</Window>
