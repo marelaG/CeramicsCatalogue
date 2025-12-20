@@ -2,16 +2,32 @@ using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.DAO.Context;
 using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
+using Microsoft.EntityFrameworkCore; // Konieczne dla metody .Include()
 
-
-namespace DAO.Repositories
+namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Repositories
 {
     public class CeramicRepositoryEf : ICeramicRepository
     {
         public IEnumerable<ICeramicItem> GetAll()
         {
             using var ctx = new CeramicsDbContext();
-            return ctx.CeramicItems.ToList();
+            return ctx.CeramicItems
+                .Include(x => x.Producer) 
+                .ToList();
+        }
+        public IEnumerable<ICeramicItem> Search(string query)
+        {
+            using var ctx = new CeramicsDbContext();
+            
+            if (string.IsNullOrWhiteSpace(query))
+                return GetAll();
+
+            var normalizedQuery = query.ToLower();
+
+            return ctx.CeramicItems
+                .Include(x => x.Producer)
+                .Where(x => x.Name.ToLower().Contains(normalizedQuery))
+                .ToList();
         }
 
         public void Add(ICeramicItem item)

@@ -1,57 +1,77 @@
 using System.Collections.ObjectModel;
+using System.Windows;
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
+using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
-using GancewskaKerebinska.CeramicsCatalogue.UI.WPF;
-using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Commands;
-using GancewskaKerebinska.CeramicsCatalogue.UI.WPF;
+using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 {
-    public class ProducerViewModel
+    public class ProducerViewModel : ViewModelBase 
     {
         private readonly ProducerService _service;
-
-        public ObservableCollection<IProducer> Producers { get; }
-
-        public IProducer? SelectedProducer { get; set; }
-
-        public RelayCommand AddCommand { get; }
-        public RelayCommand DeleteCommand { get; }
+        
+        public ObservableCollection<IProducer> Producers { get; set; }
+        
+        private IProducer _selectedProducer;
+        public IProducer SelectedProducer
+        {
+            get => _selectedProducer;
+            set { _selectedProducer = value; OnPropertyChanged(); }
+        }
 
         public ProducerViewModel()
         {
             var repo = Bootstrapper.CreateProducerRepository();
             _service = new ProducerService(repo);
-
-            Producers = new ObservableCollection<IProducer>(_service.GetAll());
-
-            AddCommand = new RelayCommand(_ => AddProducer());
-            DeleteCommand = new RelayCommand(_ => DeleteProducer(), _ => SelectedProducer != null);
+            Producers = new ObservableCollection<IProducer>();
+            LoadData();
         }
 
-        private void AddProducer()
-        {
-            // TEMPORARY SIMPLE VERSION
-            var producer = Producers.FirstOrDefault();
-            if (producer == null) return;
-
-            _service.Add(producer);
-            Refresh();
-        }
-
-        private void DeleteProducer()
-        {
-            if (SelectedProducer == null) return;
-
-            _service.Delete(SelectedProducer.Id);
-            Refresh();
-        }
-
-        private void Refresh()
+        private void LoadData()
         {
             Producers.Clear();
-            foreach (var p in _service.GetAll())
-                Producers.Add(p);
+            foreach (var p in _service.GetAll()) Producers.Add(p);
+        }
+
+        public void AddNewProducer()
+        {
+            var newProducer = new ProducerDo();
+            var editor = new ProducerEditorWindow(newProducer);
+            if (editor.ShowDialog() == true)
+            {
+                try
+                {
+                    _service.Add(newProducer);
+                    LoadData();
+                }
+                catch (System.Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
+
+        public void EditSelectedProducer()
+        {
+            if (SelectedProducer == null) return;
+            var editor = new ProducerEditorWindow(SelectedProducer);
+            if (editor.ShowDialog() == true)
+            {
+                try
+                {
+                    _service.Update(SelectedProducer);
+                    LoadData();
+                }
+                catch (System.Exception ex) { MessageBox.Show(ex.Message); }
+            }
+        }
+
+        public void DeleteSelectedProducer()
+        {
+            if (SelectedProducer == null) return;
+            if (MessageBox.Show($"Delete {SelectedProducer.Name}?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                _service.Delete(SelectedProducer.Id);
+                LoadData();
+            }
         }
     }
 }

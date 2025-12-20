@@ -14,12 +14,32 @@ namespace GancewskaKerebinska.CeramicsCatalogue.BL.Services
 
         public IEnumerable<ICeramicItem> GetAll() => _repository.GetAll();
 
+        public IEnumerable<ICeramicItem> Search(string text) => _repository.Search(text);
+
         public void Add(ICeramicItem item)
+        {
+            ValidateItem(item);
+            _repository.Add(item);
+        }
+
+        public void Update(ICeramicItem item)
+        {
+            ValidateItem(item);
+            _repository.Update(item);
+        }
+
+        public void Delete(int id)
+        {
+            _repository.Delete(id);
+        }
+
+        private void ValidateItem(ICeramicItem item)
         {
             if (string.IsNullOrWhiteSpace(item.Name) || item.Name.Length < 3)
                 throw new Exception("Name must be at least 3 characters long");
-
-            _repository.Add(item);
+            
+            if (item.ProducerId <= 0)
+                throw new Exception("Product must have a valid Producer");
         }
     }
 }

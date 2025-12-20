@@ -9,7 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CeramicsCatalogue/Class1.cs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/ViewModels/MainViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/ViewModels/ProducerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/ViewModels/ProducerViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,12 +67,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "repos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -102,6 +111,7 @@
       <updated>1764878865896</updated>
       <workItem from="1764878867849" duration="1459000" />
       <workItem from="1766143114687" duration="2190000" />
+      <workItem from="1766232461303" duration="2903000" />
     </task>
     <servers />
   </component>

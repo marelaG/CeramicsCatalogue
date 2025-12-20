@@ -3,8 +3,7 @@ using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 
-namespace DAO.Repositories
-{
+namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Repositories{
     public class ProducerRepositoryEf : IProducerRepository
     {
         public IEnumerable<IProducer> GetAll()

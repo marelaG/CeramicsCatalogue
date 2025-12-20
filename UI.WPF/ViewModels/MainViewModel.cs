@@ -40,13 +40,14 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         {
             _productViewModel = new ProductViewModel();
             _producerViewModel = new ProducerViewModel();
+
             ChangeViewCommand = new RelayCommand(ChangeView);
+            
             AddCommand = new RelayCommand(Add);
             ModifyCommand = new RelayCommand(Modify);
             DeleteCommand = new RelayCommand(Delete);
             SearchCommand = new RelayCommand(Search);
 
-            // Set the initial view
             CurrentView = _productViewModel;
         }
 
@@ -64,24 +65,28 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 
         private void Add(object parameter)
         {
-            // TODO: Implement Add functionality
+            if (CurrentView is ProductViewModel productVM) productVM.AddNewProduct();
+            else if (CurrentView is ProducerViewModel producerVM) producerVM.AddNewProducer();
         }
 
         private void Modify(object parameter)
         {
-            // TODO: Implement Modify functionality
+            if (CurrentView is ProductViewModel productVM) productVM.EditSelectedProduct();
+            else if (CurrentView is ProducerViewModel producerVM) producerVM.EditSelectedProducer(); 
         }
-
-
 
         private void Delete(object parameter)
         {
-            // TODO: Implement Delete functionality
+            if (CurrentView is ProductViewModel productVM) productVM.DeleteSelectedProduct();
+            else if (CurrentView is ProducerViewModel producerVM) producerVM.DeleteSelectedProducer(); 
         }
 
         private void Search(object parameter)
         {
-            // TODO: Implement Search functionality
+            if (CurrentView is ProductViewModel productVM)
+            {
+                productVM.Search(SearchText);
+            }
         }
     }
 }
