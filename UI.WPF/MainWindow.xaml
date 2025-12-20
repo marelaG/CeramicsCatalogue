@@ -5,25 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF"
         xmlns:viewModels="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels"
+        xmlns:views="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views"
         mc:Ignorable="d"
         Title="Ceramics Catalogue" Height="450" Width="800">
+
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:ProductViewModel}">
+            <views:ProductView />
+        </DataTemplate>
+        
+        </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Button Content="Products" Command="{Binding ChangeViewCommand}" CommandParameter="Products"/>
-            <Button Content="Producers" Command="{Binding ChangeViewCommand}" CommandParameter="Producers"/>
-            <Button Content="Add" Command="{Binding AddCommand}"/>
-            <Button Content="Modify" Command="{Binding ModifyCommand}"/>
-            <Button Content="Delete" Command="{Binding DeleteCommand}"/>
-            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150"/>
-            <Button Content="Search" Command="{Binding SearchCommand}"/>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+            <Button Content="Products" Command="{Binding ChangeViewCommand}" CommandParameter="Products" Margin="2"/>
+            <Button Content="Producers" Command="{Binding ChangeViewCommand}" CommandParameter="Producers" Margin="2"/>
+            <Button Content="Add" Command="{Binding AddCommand}" Margin="10,2,2,2"/>
+            <Button Content="Modify" Command="{Binding ModifyCommand}" Margin="2"/>
+            <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="2"/>
+            
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="10,2,2,2"/>
+            <Button Content="Search" Command="{Binding SearchCommand}" Margin="2"/>
         </StackPanel>
-        <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
+        
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="5"/>
     </Grid>
 </Window>
