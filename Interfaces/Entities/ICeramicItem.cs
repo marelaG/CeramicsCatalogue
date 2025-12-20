@@ -8,4 +8,5 @@ public interface ICeramicItem
     CeramicType CeramicType { get; set; }
     FiringType FiringType { get; set; }
     int ProducerId { get; set; }
+    IProducer Producer { get; }
 }

@@ -15,6 +15,7 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Ceramic Type" Binding="{Binding CeramicType}" />
                 <DataGridTextColumn Header="Firing Type" Binding="{Binding FiringType}" />
+                <DataGridTextColumn Header="Producer" Binding="{Binding Producer.Name}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

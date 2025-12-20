@@ -9,14 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/ViewModels/ProducerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/ViewModels/ProducerViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAO/Entities/CeramicItemDo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/Entities/CeramicItemDo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interfaces/Entities/ICeramicItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/Entities/ICeramicItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "repos",
+    "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

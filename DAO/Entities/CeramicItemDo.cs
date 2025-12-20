@@ -12,5 +12,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Entities
 
         public int ProducerId { get; set; }
         public ProducerDo Producer { get; set; }
+        
+        IProducer ICeramicItem.Producer => Producer;
     }
 }
