@@ -17,8 +17,11 @@
         <DataTemplate DataType="{x:Type viewModels:ProductViewModel}">
             <views:ProductView />
         </DataTemplate>
-        
-        </Window.Resources>
+
+        <DataTemplate DataType="{x:Type viewModels:ProducerViewModel}">
+            <views:ProducerView />
+        </DataTemplate> 
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>

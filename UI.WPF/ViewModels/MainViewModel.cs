@@ -65,28 +65,20 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 
         private void Add(object parameter)
         {
-            if (CurrentView is ProductViewModel productVM)
-            {
-                productVM.AddNewProduct();
-            }
+            if (CurrentView is ProductViewModel productVM) productVM.AddNewProduct();
+            else if (CurrentView is ProducerViewModel producerVM) producerVM.AddNewProducer();
         }
 
         private void Modify(object parameter)
         {
-            if (CurrentView is ProductViewModel productVM)
-            {
-                productVM.EditSelectedProduct();
-            }
+            if (CurrentView is ProductViewModel productVM) productVM.EditSelectedProduct();
+            else if (CurrentView is ProducerViewModel producerVM) producerVM.EditSelectedProducer(); 
         }
-
-
 
         private void Delete(object parameter)
         {
-            if (CurrentView is ProductViewModel productVM)
-            {
-                productVM.DeleteSelectedProduct();
-            }
+            if (CurrentView is ProductViewModel productVM) productVM.DeleteSelectedProduct();
+            else if (CurrentView is ProducerViewModel producerVM) producerVM.DeleteSelectedProducer(); 
         }
 
         private void Search(object parameter)

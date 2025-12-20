@@ -9,16 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BL/Services/CeramicService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BL/Services/CeramicService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAO/Repositories/CeramicsRepositoryEf.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/Repositories/CeramicsRepositoryEf.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAO/Repositories/ProducerRepositoryEf.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/Repositories/ProducerRepositoryEf.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interfaces/Repositories/ICeramicRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/Repositories/ICeramicRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI.WPF/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/ViewModels/ProductViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/ViewModels/ProductViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/ViewModels/ProducerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/ViewModels/ProducerViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
       <updated>1764878865896</updated>
       <workItem from="1764878867849" duration="1459000" />
       <workItem from="1766143114687" duration="2190000" />
-      <workItem from="1766232461303" duration="2268000" />
+      <workItem from="1766232461303" duration="2903000" />
     </task>
     <servers />
   </component>
