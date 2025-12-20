@@ -7,15 +7,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding Products}" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Label Content="Filter by Producer:" VerticalAlignment="Center"/>
+            <ComboBox ItemsSource="{Binding Producers}" 
+                      SelectedItem="{Binding SelectedProducerFilter}"
+                      DisplayMemberPath="Name"
+                      Width="150" Margin="5,0,0,0"/>
+            <Button Content="Clear Filter" 
+                    Command="{Binding ClearFilterCommand}" 
+                    Margin="5,0,0,0" Padding="5,2"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" 
+                  ItemsSource="{Binding Products}" 
                   SelectedItem="{Binding SelectedProduct}"
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Producer" Binding="{Binding Producer.Name}" />
                 <DataGridTextColumn Header="Ceramic Type" Binding="{Binding CeramicType}" />
                 <DataGridTextColumn Header="Firing Type" Binding="{Binding FiringType}" />
-                <DataGridTextColumn Header="Producer" Binding="{Binding Producer.Name}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

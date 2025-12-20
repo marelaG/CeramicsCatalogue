@@ -1,8 +1,10 @@
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Input;
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
 using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Commands;
 using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
@@ -13,6 +15,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         private readonly ProducerService _producerService;
 
         public ObservableCollection<ICeramicItem> Products { get; set; }
+        public ObservableCollection<IProducer> Producers { get; set; }
 
         private ICeramicItem _selectedProduct;
         public ICeramicItem SelectedProduct
@@ -21,14 +24,32 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             set { _selectedProduct = value; OnPropertyChanged(); }
         }
 
+        private IProducer _selectedProducerFilter;
+        public IProducer SelectedProducerFilter
+        {
+            get => _selectedProducerFilter;
+            set 
+            { 
+                _selectedProducerFilter = value; 
+                OnPropertyChanged();
+                FilterByProducer();
+            }
+        }
+        
+        public ICommand ClearFilterCommand { get; }
+
         public ProductViewModel()
         {
             _service = new CeramicService(Bootstrapper.CreateCeramicRepository());
             _producerService = new ProducerService(Bootstrapper.CreateProducerRepository());
             
             Products = new ObservableCollection<ICeramicItem>();
+            Producers = new ObservableCollection<IProducer>();
+            
+            ClearFilterCommand = new RelayCommand(ClearFilter);
             
             LoadData();
+            LoadProducers();
         }
 
         public void LoadData()
@@ -42,12 +63,41 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             }
             OnPropertyChanged(nameof(Products));
         }
+
+        private void LoadProducers()
+        {
+            var producers = _producerService.GetAll();
+            Producers.Clear();
+            foreach (var p in producers)
+            {
+                Producers.Add(p);
+            }
+        }
         
         public void Search(string query)
         {
             var results = _service.Search(query);
             Products.Clear();
             foreach (var item in results) Products.Add(item);
+        }
+
+        private void FilterByProducer()
+        {
+            if (SelectedProducerFilter == null)
+            {
+                LoadData();
+            }
+            else
+            {
+                var results = _service.GetByProducer(SelectedProducerFilter.Id);
+                Products.Clear();
+                foreach (var item in results) Products.Add(item);
+            }
+        }
+        
+        private void ClearFilter(object parameter)
+        {
+            SelectedProducerFilter = null;
         }
 
         public void AddNewProduct()
