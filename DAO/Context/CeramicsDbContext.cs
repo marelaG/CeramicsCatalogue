@@ -24,9 +24,9 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Context
             );
 
             modelBuilder.Entity<CeramicItemDo>().HasData(
-                new CeramicItemDo { Id = 1, Name = "Mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 },
-                new CeramicItemDo { Id = 2, Name = "Plate", CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 },
-                new CeramicItemDo { Id = 3, Name = "Vase", CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 }
+                new CeramicItemDo { Id = 1, Name = "Mug", ImagePath = null, CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 },
+                new CeramicItemDo { Id = 2, Name = "Plate", ImagePath = null, CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 },
+                new CeramicItemDo { Id = 3, Name = "Vase", ImagePath = null, CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 }
             );
         }
     }

@@ -5,7 +5,9 @@ public interface ICeramicItem
 {
     int Id { get; }
     string Name { get; set; }
+    string? ImagePath { get; set; }
     CeramicType CeramicType { get; set; }
     FiringType FiringType { get; set; }
     int ProducerId { get; set; }
+    IProducer Producer { get; }
 }

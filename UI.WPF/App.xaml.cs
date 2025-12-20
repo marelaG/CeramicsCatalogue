@@ -12,7 +12,11 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF
 
             using (var context = new CeramicsDbContext())
             {
-                context.Database.Migrate();
+                // Ensure the database is created and schema is up to date
+                // For development purposes, we can delete and recreate the database to apply changes
+                // In production, use Migrations
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
             }
 
             var mainWindow = new MainWindow();

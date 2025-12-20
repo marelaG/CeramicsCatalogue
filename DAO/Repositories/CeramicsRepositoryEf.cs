@@ -30,6 +30,15 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Repositories
                 .ToList();
         }
 
+        public IEnumerable<ICeramicItem> GetByProducer(int producerId)
+        {
+            using var ctx = new CeramicsDbContext();
+            return ctx.CeramicItems
+                .Include(x => x.Producer)
+                .Where(x => x.ProducerId == producerId)
+                .ToList();
+        }
+
         public void Add(ICeramicItem item)
         {
             using var ctx = new CeramicsDbContext();

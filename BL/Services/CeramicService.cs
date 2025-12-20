@@ -16,6 +16,8 @@ namespace GancewskaKerebinska.CeramicsCatalogue.BL.Services
 
         public IEnumerable<ICeramicItem> Search(string text) => _repository.Search(text);
 
+        public IEnumerable<ICeramicItem> GetByProducer(int producerId) => _repository.GetByProducer(producerId);
+
         public void Add(ICeramicItem item)
         {
             ValidateItem(item);
