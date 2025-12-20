@@ -7,7 +7,7 @@ using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 {
-    public class ProducerViewModel : ViewModelBase // Upewnij się, że dziedziczy po ViewModelBase!
+    public class ProducerViewModel : ViewModelBase 
     {
         private readonly ProducerService _service;
         
