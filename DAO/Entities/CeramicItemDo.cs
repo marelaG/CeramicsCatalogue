@@ -7,6 +7,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string? ImagePath { get; set; }
         public CeramicType CeramicType { get; set; }
         public FiringType FiringType { get; set; }
 

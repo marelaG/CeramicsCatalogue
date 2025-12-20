@@ -18,6 +18,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views
             ProducerComboBox.ItemsSource = producers;
 
             NameTextBox.Text = Item.Name;
+            ImagePathTextBox.Text = Item.ImagePath;
             TypeComboBox.SelectedItem = Item.CeramicType;
             FiringComboBox.SelectedItem = Item.FiringType;
             
@@ -46,6 +47,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views
             }
 
             Item.Name = NameTextBox.Text;
+            Item.ImagePath = ImagePathTextBox.Text;
             Item.CeramicType = (CeramicType)TypeComboBox.SelectedItem;
             Item.FiringType = (FiringType)FiringComboBox.SelectedItem;
             
