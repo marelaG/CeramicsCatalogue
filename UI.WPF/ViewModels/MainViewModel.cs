@@ -27,6 +27,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             {
                 _searchText = value;
                 OnPropertyChanged();
+                Search(null);
             }
         }
 
