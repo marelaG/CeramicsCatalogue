@@ -7,39 +7,218 @@
         xmlns:viewModels="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels"
         xmlns:views="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views"
         mc:Ignorable="d"
-        Title="Ceramics Catalogue" Height="450" Width="800">
+        Title="Ceramics Catalogue" Height="700" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="#F3F4F6"
+        FontFamily="Segoe UI">
 
     <Window.DataContext>
         <viewModels:MainViewModel/>
     </Window.DataContext>
 
     <Window.Resources>
+        <!-- Color Palette -->
+        <SolidColorBrush x:Key="PrimaryColor" Color="#4F46E5"/> <!-- Indigo 600 -->
+        <SolidColorBrush x:Key="PrimaryHoverColor" Color="#4338CA"/> <!-- Indigo 700 -->
+        <SolidColorBrush x:Key="SecondaryColor" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="TextPrimary" Color="#111827"/> <!-- Gray 900 -->
+        <SolidColorBrush x:Key="TextSecondary" Color="#6B7280"/> <!-- Gray 500 -->
+        <SolidColorBrush x:Key="BorderColor" Color="#E5E7EB"/> <!-- Gray 200 -->
+        <SolidColorBrush x:Key="DangerColor" Color="#EF4444"/> <!-- Red 500 -->
+
+        <!-- Navigation Button Style -->
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="15,12"/>
+            <Setter Property="Margin" Value="0,2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#F3F4F6"/>
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryColor}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Action Button Style -->
+        <Style x:Key="ActionButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="Margin" Value="0,0,12,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="6" 
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#F9FAFB"/>
+                    <Setter Property="BorderBrush" Value="#D1D5DB"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Primary Action Button Style -->
+        <Style x:Key="PrimaryActionButtonStyle" TargetType="Button" BasedOn="{StaticResource ActionButtonStyle}">
+            <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource PrimaryHoverColor}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Danger Action Button Style -->
+        <Style x:Key="DangerActionButtonStyle" TargetType="Button" BasedOn="{StaticResource ActionButtonStyle}">
+            <Setter Property="Foreground" Value="{StaticResource DangerColor}"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FEF2F2"/>
+                    <Setter Property="BorderBrush" Value="#FECACA"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Search Box Style -->
+        <Style x:Key="SearchTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="6">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="{StaticResource PrimaryColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Data Templates -->
         <DataTemplate DataType="{x:Type viewModels:ProductViewModel}">
             <views:ProductView />
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewModels:ProducerViewModel}">
             <views:ProducerView />
-        </DataTemplate> 
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
-            <Button Content="Products" Command="{Binding ChangeViewCommand}" CommandParameter="Products" Margin="2"/>
-            <Button Content="Producers" Command="{Binding ChangeViewCommand}" CommandParameter="Producers" Margin="2"/>
-            <Button Content="Add" Command="{Binding AddCommand}" Margin="10,2,2,2"/>
-            <Button Content="Modify" Command="{Binding ModifyCommand}" Margin="2"/>
-            <Button Content="Delete" Command="{Binding DeleteCommand}" Margin="2"/>
-            
-            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="10,2,2,2"/>
-            <Button Content="Search" Command="{Binding SearchCommand}" Margin="2"/>
-        </StackPanel>
-        
-        <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="5"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Grid.Column="0" Background="White" BorderBrush="{StaticResource BorderColor}" BorderThickness="0,0,1,0">
+            <Grid Margin="24">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Logo / Title -->
+                <StackPanel Grid.Row="0" Margin="0,0,0,40">
+                    <TextBlock Text="Ceramics" FontSize="26" FontWeight="Bold" Foreground="{StaticResource PrimaryColor}"/>
+                    <TextBlock Text="Catalogue" FontSize="26" FontWeight="Light" Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+
+                <!-- Navigation Menu -->
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="MENU" FontSize="12" FontWeight="Bold" Foreground="#9CA3AF" Margin="4,0,0,12"/>
+                    <Button Content="Products" Command="{Binding ChangeViewCommand}" CommandParameter="Products" Style="{StaticResource NavButtonStyle}"/>
+                    <Button Content="Producers" Command="{Binding ChangeViewCommand}" CommandParameter="Producers" Style="{StaticResource NavButtonStyle}"/>
+                </StackPanel>
+                
+                <!-- Footer -->
+                <TextBlock Grid.Row="2" Text="v1.0.0" Foreground="{StaticResource TextSecondary}" FontSize="12" HorizontalAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Grid Grid.Column="1" Margin="32">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Top Bar: Title & Search -->
+            <Grid Grid.Row="0" Margin="0,0,0,24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Dashboard" FontSize="30" FontWeight="SemiBold" Foreground="{StaticResource TextPrimary}" VerticalAlignment="Center"/>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                             Width="240" 
+                             Style="{StaticResource SearchTextBoxStyle}"
+                             Margin="0,0,8,0"/>
+                    <Button Content="Search" Command="{Binding SearchCommand}" Style="{StaticResource PrimaryActionButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Action Toolbar -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,24">
+                <Button Content="+ Add New" Command="{Binding AddCommand}" Style="{StaticResource PrimaryActionButtonStyle}"/>
+                <Button Content="Modify Selected" Command="{Binding ModifyCommand}" Style="{StaticResource ActionButtonStyle}"/>
+                <Button Content="Delete Selected" Command="{Binding DeleteCommand}" Style="{StaticResource DangerActionButtonStyle}"/>
+            </StackPanel>
+
+            <!-- View Content -->
+            <Border Grid.Row="2" Background="White" CornerRadius="12" BorderBrush="{StaticResource BorderColor}" BorderThickness="1">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="2" Opacity="0.05" BlurRadius="10"/>
+                </Border.Effect>
+                <ContentControl Content="{Binding CurrentView}" Margin="20"/>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

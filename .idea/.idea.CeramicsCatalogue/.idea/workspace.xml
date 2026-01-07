@@ -8,15 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DAO/Context/CeramicsDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/Context/CeramicsDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAO/Entities/CeramicItemDo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/Entities/CeramicItemDo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interfaces/Entities/ICeramicItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/Entities/ICeramicItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" afterDir="false" />
-    </list>
+    <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +60,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;minorClean-up&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;niceUi&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,

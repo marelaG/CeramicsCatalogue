@@ -6,40 +6,146 @@
              xmlns:local="clr-namespace:GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!-- Modern DataGrid Style -->
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#E5E7EB"/>
+            <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="RowHeight" Value="40"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+
+        <!-- Column Header Style -->
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#F9FAFB"/>
+            <Setter Property="Foreground" Value="#6B7280"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="#E5E7EB"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridColumnHeader">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Cell Style -->
+        <Style TargetType="DataGridCell">
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGridCell">
+                        <Border Padding="{TemplateBinding Padding}" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="Transparent" 
+                                BorderThickness="0">
+                            <ContentPresenter VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#EEF2FF"/>
+                    <Setter Property="Foreground" Value="#4F46E5"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- ComboBox Style -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#D1D5DB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        
+        <!-- Filter Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#D1D5DB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Margin" Value="8,0,0,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#F3F4F6"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
-            <Label Content="Filter by Producer:" VerticalAlignment="Center"/>
-            <ComboBox ItemsSource="{Binding Producers}" 
-                      SelectedItem="{Binding SelectedProducerFilter}"
-                      DisplayMemberPath="Name"
-                      Width="150" Margin="5,0,0,0"/>
-            <Button Content="Clear Filter" 
-                    Command="{Binding ClearFilterCommand}" 
-                    Margin="5,0,0,0" Padding="5,2"/>
-        </StackPanel>
+        <!-- Filter Bar -->
+        <Border Grid.Row="0" Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="0,0,0,1" Padding="16,12">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Filter by Producer:" VerticalAlignment="Center" Foreground="#374151" FontWeight="Medium" Margin="0,0,8,0"/>
+                <ComboBox ItemsSource="{Binding Producers}" 
+                          SelectedItem="{Binding SelectedProducerFilter}"
+                          DisplayMemberPath="Name"
+                          Width="200"/>
+                <Button Content="Clear Filter" Command="{Binding ClearFilterCommand}"/>
+            </StackPanel>
+        </Border>
 
+        <!-- Data Grid -->
         <DataGrid Grid.Row="1" 
                   ItemsSource="{Binding Products}" 
-                  SelectedItem="{Binding SelectedProduct}"
-                  AutoGenerateColumns="False" 
-                  CanUserAddRows="False">
+                  SelectedItem="{Binding SelectedProduct}">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Image">
+                <DataGridTemplateColumn Header="Image" Width="80">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding ImagePath}" Height="50" Width="50" Stretch="UniformToFill"/>
+                            <Border CornerRadius="4" ClipToBounds="True" Width="40" Height="40" HorizontalAlignment="Left">
+                                <Image Source="{Binding ImagePath}" Stretch="UniformToFill"/>
+                            </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Producer" Binding="{Binding Producer.Name}" />
-                <DataGridTextColumn Header="Ceramic Type" Binding="{Binding CeramicType}" />
-                <DataGridTextColumn Header="Firing Type" Binding="{Binding FiringType}" />
+                
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Producer" Binding="{Binding Producer.Name}" Width="*"/>
+                <DataGridTextColumn Header="Ceramic Type" Binding="{Binding CeramicType}" Width="150"/>
+                <DataGridTextColumn Header="Firing Type" Binding="{Binding FiringType}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
