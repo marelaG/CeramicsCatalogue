@@ -16,16 +16,12 @@
       <ProjectReference Include="..\DAOMock\DAOMock.csproj" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
-    </ItemGroup>
-
     <Target Name="CopyDAO" AfterTargets="Build">
         <ItemGroup>
-            <DaoDlls Include="..\DAO\bin\$(Configuration)\net9.0\DAO.dll" />
-            <DaoPdb Include="..\DAO\bin\$(Configuration)\net9.0\DAO.pdb" />
-            <DaoMockDlls Include="..\DAOMock\bin\$(Configuration)\net9.0\DAOMock.dll" />
-            <DaoMockPdb Include="..\DAOMock\bin\$(Configuration)\net9.0\DAOMock.pdb" />
+            <DaoDlls Include="..\DAO\bin\$(Configuration)\net9.0\*.dll" />
+            <DaoPdb Include="..\DAO\bin\$(Configuration)\net9.0\*.pdb" />
+            <DaoMockDlls Include="..\DAOMock\bin\$(Configuration)\net9.0\*.dll" />
+            <DaoMockPdb Include="..\DAOMock\bin\$(Configuration)\net9.0\*.pdb" />
         </ItemGroup>
         <Copy SourceFiles="@(DaoDlls)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(DaoPdb)" DestinationFolder="$(OutDir)" Condition="Exists('%(Identity)')" SkipUnchangedFiles="true" />

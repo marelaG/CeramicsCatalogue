@@ -72,6 +72,11 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
                 Producers.Add(p);
             }
         }
+
+        public void RefreshProducers()
+        {
+            LoadProducers();
+        }
         
         public void Search(string query)
         {
@@ -102,7 +107,9 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         public void AddNewProduct()
         {
             var newItem = Bootstrapper.CreateCeramicItem();
-            var producers = _producerService.GetAll();
+            // Refresh producers before opening dialog to ensure we have the latest list
+            LoadProducers();
+            var producers = Producers; 
             
             var editor = new ProductEditorWindow(newItem, producers);
             if (editor.ShowDialog() == true)
@@ -123,7 +130,10 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         {
             if (SelectedProduct == null) return;
             
-            var producers = _producerService.GetAll();
+            // Refresh producers before opening dialog
+            LoadProducers();
+            var producers = Producers;
+
             var editor = new ProductEditorWindow(SelectedProduct, producers);
             
             if (editor.ShowDialog() == true)

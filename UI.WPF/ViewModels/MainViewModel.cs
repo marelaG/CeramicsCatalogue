@@ -42,6 +42,9 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             _productViewModel = new ProductViewModel();
             _producerViewModel = new ProducerViewModel();
 
+            // Subscribe to producer changes
+            _producerViewModel.ProducersChanged += OnProducersChanged;
+
             ChangeViewCommand = new RelayCommand(ChangeView);
             
             AddCommand = new RelayCommand(Add);
@@ -50,6 +53,12 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             SearchCommand = new RelayCommand(Search);
 
             _currentView = _productViewModel;
+        }
+
+        private void OnProducersChanged(object? sender, EventArgs e)
+        {
+            // Refresh producers in product view model when they change in producer view model
+            _productViewModel.RefreshProducers();
         }
 
         private void ChangeView(object? parameter)
