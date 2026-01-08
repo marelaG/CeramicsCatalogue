@@ -44,6 +44,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(CeramicItemDo item)
         {
+            ModelState.Remove("Producer");
             if (ModelState.IsValid)
             {
                 try
@@ -75,6 +76,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
         {
             if (id != item.Id) return NotFound();
 
+            ModelState.Remove("Producer");
             if (ModelState.IsValid)
             {
                 try
