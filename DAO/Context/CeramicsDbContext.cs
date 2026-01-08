@@ -26,12 +26,12 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Context
             );
 
             modelBuilder.Entity<CeramicItemDo>().HasData(
-                new CeramicItemDo { Id = 1, Name = "Mug", ImagePath = null, Description = "Classic mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 },
-                new CeramicItemDo { Id = 2, Name = "Plate", ImagePath = null, Description = "Dinner plate", CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 },
-                new CeramicItemDo { Id = 3, Name = "Vase", ImagePath = null, Description = "Decorative vase", CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 },
-                new CeramicItemDo { Id = 4, Name = "Blue Fluted Plain Plate", ImagePath = null, Description = "Hand painted", CeramicType = CeramicType.Plate, FiringType = FiringType.Porcelain, ProducerId = 2 },
-                new CeramicItemDo { Id = 5, Name = "Onion Pattern Bowl", ImagePath = null, Description = "Traditional pattern", CeramicType = CeramicType.Bowl, FiringType = FiringType.Porcelain, ProducerId = 3 },
-                new CeramicItemDo { Id = 6, Name = "Jasperware Vase", ImagePath = null, Description = "Iconic blue", CeramicType = CeramicType.Vase, FiringType = FiringType.Stoneware, ProducerId = 4 }
+                new CeramicItemDo { Id = 1, Name = "Mug", ImagePath = "https://manufakturawboleslawcu.com/cdn/shop/files/IMG_3976_600x.jpg?v=1711186133", Description = "Classic mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 },
+                new CeramicItemDo { Id = 2, Name = "Plate", ImagePath = "https://uniceramic.pl/wp-content/uploads/2024/03/Talerz-talerz-obiadowy-talerz-na-ciasto-talerzyk-deserowy-ceramika-boleslawiec-porcelana-boleslawiec-ceramika-boleslawiec-sklep-internetowy-zaklady-boleslawiec-boleslawiec-e-manufaktura-manufaktura-07.jpg", Description = "Dinner plate", CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 },
+                new CeramicItemDo { Id = 3, Name = "Vase", ImagePath = "https://di2ponv0v5otw.cloudfront.net/posts/2024/12/08/67566fc56cb777d932032942/m_675670c9c9af8c3c0a0355af.jpeg", Description = "Decorative vase", CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 },
+                new CeramicItemDo { Id = 4, Name = "Blue Fluted Plain Plate", ImagePath = "https://marymahoney.com/cdn/shop/products/4307cdb25d52ae0152f17c528103a853_6088b499-3c40-4a61-8b57-680681a50eed_1440x.jpg?v=1635753875", Description = "Hand painted", CeramicType = CeramicType.Plate, FiringType = FiringType.Porcelain, ProducerId = 2 },
+                new CeramicItemDo { Id = 5, Name = "Onion Pattern Bowl", ImagePath = "https://cdn20.pamono.com/p/g/1/0/1094851_7uuqld5vmu/mid-century-blue-onion-pattern-large-bowl-from-meissen-stadt-1.jpg", Description = "Traditional pattern", CeramicType = CeramicType.Bowl, FiringType = FiringType.Porcelain, ProducerId = 3 },
+                new CeramicItemDo { Id = 6, Name = "Jasperware Vase", ImagePath = "https://halls.blob.core.windows.net/stock/108041-0-medium.jpg?v=63691023749127", Description = "Iconic blue", CeramicType = CeramicType.Vase, FiringType = FiringType.Stoneware, ProducerId = 4 }
             );
         }
     }

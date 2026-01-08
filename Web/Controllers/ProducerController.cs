@@ -1,7 +1,9 @@
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
+using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
 using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
 {
@@ -14,9 +16,23 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
             _service = service;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString, Country? country)
         {
             var producers = _service.GetAll();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                producers = _service.Search(searchString);
+            }
+            else if (country.HasValue)
+            {
+                producers = _service.GetByCountry(country.Value);
+            }
+
+            // Get only available countries for the filter
+            ViewBag.AvailableCountries = _service.GetAvailableCountries();
+            ViewBag.SelectedCountry = country;
+
             return View(producers);
         }
 
