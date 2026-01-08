@@ -1,0 +1,60 @@
+@model IEnumerable<GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities.ICeramicItem>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<div class="row mb-3">
+    <div class="col-md-8">
+        <form asp-action="Index" method="get" class="d-flex gap-2">
+            <input type="text" name="searchString" class="form-control" placeholder="Search by name..." value="@Context.Request.Query["searchString"]" />
+            <select name="producerId" class="form-control" asp-items="ViewBag.Producers">
+                <option value="">-- All Producers --</option>
+            </select>
+            <button type="submit" class="btn btn-outline-primary">Filter</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+        </form>
+    </div>
+    <div class="col-md-4 text-end">
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Firing</th>
+            <th>Producer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @if (!string.IsNullOrEmpty(item.ImagePath))
+                {
+                    <img src="@item.ImagePath" style="max-height: 50px; max-width: 50px;" />
+                }
+            </td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price?.ToString("C")</td>
+            <td>@item.CeramicType</td>
+            <td>@item.FiringType</td>
+            <td>@item.Producer?.Name</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
