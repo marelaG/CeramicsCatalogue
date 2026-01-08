@@ -19,7 +19,27 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             }
         }
 
-        public string ImagePath
+        public string? Description
+        {
+            get => _item.Description;
+            set
+            {
+                _item.Description = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public double? Price
+        {
+            get => _item.Price;
+            set
+            {
+                _item.Price = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string? ImagePath
         {
             get => _item.ImagePath;
             set

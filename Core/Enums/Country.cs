@@ -6,5 +6,7 @@ public enum Country
     China,
     Netherlands,
     Japan,
+    Germany,
+    UK,
     Other
 }

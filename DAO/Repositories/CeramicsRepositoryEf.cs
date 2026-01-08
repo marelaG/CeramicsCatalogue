@@ -26,7 +26,8 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Repositories
 
             return ctx.CeramicItems
                 .Include(x => x.Producer)
-                .Where(x => x.Name.ToLower().Contains(normalizedQuery))
+                .Where(x => x.Name.ToLower().Contains(normalizedQuery) || 
+                            (x.Description != null && x.Description.ToLower().Contains(normalizedQuery)))
                 .ToList();
         }
 
