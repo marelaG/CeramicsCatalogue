@@ -9,6 +9,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<ICeramicRepository, CeramicRepositoryEf>();
 builder.Services.AddTransient<IProducerRepository, ProducerRepositoryEf>();
+/*builder.Services.AddTransient<ICeramicRepository, CeramicRepositoryMock>();
+builder.Services.AddTransient<IProducerRepository, ProducerRepositoryMock>();*/
 
 builder.Services.AddTransient<CeramicService>();
 builder.Services.AddTransient<ProducerService>();
