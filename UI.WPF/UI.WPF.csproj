@@ -16,16 +16,22 @@
       <ProjectReference Include="..\DAOMock\DAOMock.csproj" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
+    <!-- 
+      Adding SQLitePCLRaw.bundle_e_sqlite3 is necessary for the UI application (Host) 
+      to provide the native SQLite library (e_sqlite3.dll) required by the dynamically loaded DAO module.
+      This does not violate the architecture principles as it is a native runtime dependency, 
+      not a reference to the database logic or ORM (Entity Framework).
+    -->
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
+      <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.10" />
     </ItemGroup>
 
     <Target Name="CopyDAO" AfterTargets="Build">
         <ItemGroup>
-            <DaoDlls Include="..\DAO\bin\$(Configuration)\net9.0\DAO.dll" />
-            <DaoPdb Include="..\DAO\bin\$(Configuration)\net9.0\DAO.pdb" />
-            <DaoMockDlls Include="..\DAOMock\bin\$(Configuration)\net9.0\DAOMock.dll" />
-            <DaoMockPdb Include="..\DAOMock\bin\$(Configuration)\net9.0\DAOMock.pdb" />
+            <DaoDlls Include="..\DAO\bin\$(Configuration)\net9.0\*.dll" />
+            <DaoPdb Include="..\DAO\bin\$(Configuration)\net9.0\*.pdb" />
+            <DaoMockDlls Include="..\DAOMock\bin\$(Configuration)\net9.0\*.dll" />
+            <DaoMockPdb Include="..\DAOMock\bin\$(Configuration)\net9.0\*.pdb" />
         </ItemGroup>
         <Copy SourceFiles="@(DaoDlls)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
         <Copy SourceFiles="@(DaoPdb)" DestinationFolder="$(OutDir)" Condition="Exists('%(Identity)')" SkipUnchangedFiles="true" />

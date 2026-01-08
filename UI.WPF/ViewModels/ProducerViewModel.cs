@@ -10,6 +10,8 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
     {
         private readonly ProducerService _service;
         
+        public event EventHandler? ProducersChanged;
+        
         public ObservableCollection<IProducer> Producers { get; set; }
         
         private IProducer? _selectedProducer;
@@ -35,10 +37,6 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 
         public void AddNewProducer()
         {
-            // We need to create a new instance of IProducer. 
-            // Since we don't have reference to DAO (where ProducerDo is), we need a factory or use the service/bootstrapper.
-            // For now, let's assume Bootstrapper can provide a new instance or we use a factory interface.
-            
             var newProducer = Bootstrapper.CreateProducer();
             var editor = new ProducerEditorWindow(newProducer);
             if (editor.ShowDialog() == true)
@@ -47,6 +45,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
                 {
                     _service.Add(newProducer);
                     LoadData();
+                    ProducersChanged?.Invoke(this, EventArgs.Empty);
                 }
                 catch (System.Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -62,6 +61,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
                 {
                     _service.Update(SelectedProducer);
                     LoadData();
+                    ProducersChanged?.Invoke(this, EventArgs.Empty);
                 }
                 catch (System.Exception ex) { MessageBox.Show(ex.Message); }
             }
@@ -74,6 +74,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             {
                 _service.Delete(SelectedProducer.Id);
                 LoadData();
+                ProducersChanged?.Invoke(this, EventArgs.Empty);
             }
         }
     }

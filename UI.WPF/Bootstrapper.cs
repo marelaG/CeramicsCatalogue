@@ -62,7 +62,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF
             }
             catch
             {
-                // Ignore if no initializer found or initialization fails (might not be needed)
+                // Ignore 
             }
         }
     }

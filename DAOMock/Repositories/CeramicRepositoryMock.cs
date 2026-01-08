@@ -10,20 +10,18 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Repositories
         private static readonly List<ICeramicItem> _items = new List<ICeramicItem>();
         private static int _nextId = 1;
         
-        // We need access to producers to simulate the join/navigation property
         private readonly ProducerRepositoryMock _producerRepo = new ProducerRepositoryMock();
 
         static CeramicRepositoryMock()
         {
-            // Initialize with some mock data if empty
             if (!_items.Any())
             {
-                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Mug", Description = "Classic mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 });
-                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Plate", Description = "Dinner plate", CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 });
-                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Vase", Description = "Decorative vase", CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 });
-                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Blue Fluted Plain Plate", Description = "Hand painted", CeramicType = CeramicType.Plate, FiringType = FiringType.Porcelain, ProducerId = 2 });
-                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Onion Pattern Bowl", Description = "Traditional pattern", CeramicType = CeramicType.Bowl, FiringType = FiringType.Porcelain, ProducerId = 3 });
-                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Jasperware Vase", Description = "Iconic blue", CeramicType = CeramicType.Vase, FiringType = FiringType.Stoneware, ProducerId = 4 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Mug", ImagePath = "https://manufakturawboleslawcu.com/cdn/shop/files/IMG_3976_600x.jpg?v=1711186133", Description = "Classic mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Plate", ImagePath = "https://uniceramic.pl/wp-content/uploads/2024/03/Talerz-talerz-obiadowy-talerz-na-ciasto-talerzyk-deserowy-ceramika-boleslawiec-porcelana-boleslawiec-ceramika-boleslawiec-sklep-internetowy-zaklady-boleslawiec-boleslawiec-e-manufaktura-manufaktura-07.jpg", Description = "Dinner plate", CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Vase", ImagePath = "https://di2ponv0v5otw.cloudfront.net/posts/2024/12/08/67566fc56cb777d932032942/m_675670c9c9af8c3c0a0355af.jpeg", Description = "Decorative vase", CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Blue Fluted Plain Plate", ImagePath = "https://marymahoney.com/cdn/shop/products/4307cdb25d52ae0152f17c528103a853_6088b499-3c40-4a61-8b57-680681a50eed_1440x.jpg?v=1635753875", Description = "Hand painted", CeramicType = CeramicType.Plate, FiringType = FiringType.Porcelain, ProducerId = 2 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Onion Pattern Bowl", ImagePath = "https://cdn20.pamono.com/p/g/1/0/1094851_7uuqld5vmu/mid-century-blue-onion-pattern-large-bowl-from-meissen-stadt-1.jpg", Description = "Traditional pattern", CeramicType = CeramicType.Bowl, FiringType = FiringType.Porcelain, ProducerId = 3 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Jasperware Vase", ImagePath = "https://halls.blob.core.windows.net/stock/108041-0-medium.jpg?v=63691023749127", Description = "Iconic blue", CeramicType = CeramicType.Vase, FiringType = FiringType.Stoneware, ProducerId = 4 });
             }
         }
 
