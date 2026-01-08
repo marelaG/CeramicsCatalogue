@@ -1,7 +1,9 @@
 @model IEnumerable<GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities.IProducer>
+@using GancewskaKerebinska.CeramicsCatalogue.Core.Enums
 
 @{
     ViewData["Title"] = "Producers";
+    var availableCountries = ViewBag.AvailableCountries as IEnumerable<Country>;
 }
 
 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -12,6 +14,31 @@
         </svg>
         New
     </a>
+</div>
+
+<div class="card mb-4 border-0 shadow-sm bg-light">
+    <div class="card-body">
+        <form asp-action="Index" method="get" class="row g-3 align-items-end">
+            <div class="col-md-8">
+                <label class="form-label">Search</label>
+                <input type="text" name="searchString" class="form-control" placeholder="Search by name and press enter..." value="@Context.Request.Query["searchString"]" />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Country</label>
+                <select name="country" class="form-select" onchange="this.form.submit()">
+                    <option value="">-- All Countries --</option>
+                    @if (availableCountries != null)
+                    {
+                        foreach (var country in availableCountries)
+                        {
+                            var isSelected = Context.Request.Query["country"] == ((int)country).ToString() ? "selected" : "";
+                            <!option value="@((int)country)" @isSelected>@country</!option>
+                        }
+                    }
+                </select>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="card shadow-sm border-0">
@@ -31,7 +58,7 @@
                         <td class="ps-4 fw-medium">@item.Name</td>
                         <td>@item.Country</td>
                         <td class="text-end pe-4">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm me-1">Edit</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm me-1">Edit</a>
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
                         </td>
                     </tr>

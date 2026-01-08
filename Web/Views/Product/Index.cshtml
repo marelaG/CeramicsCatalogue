@@ -17,21 +17,15 @@
 <div class="card mb-4 border-0 shadow-sm bg-light">
     <div class="card-body">
         <form asp-action="Index" method="get" class="row g-3 align-items-end">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <label class="form-label">Search</label>
-                <input type="text" name="searchString" class="form-control" placeholder="Search by name..." value="@Context.Request.Query["searchString"]" />
+                <input type="text" name="searchString" class="form-control" placeholder="Search by name and press enter..." value="@Context.Request.Query["searchString"]" />
             </div>
             <div class="col-md-4">
                 <label class="form-label">Producer</label>
-                <select name="producerId" class="form-select" asp-items="ViewBag.Producers">
+                <select name="producerId" class="form-select" asp-items="ViewBag.Producers" onchange="this.form.submit()">
                     <option value="">-- All Producers --</option>
                 </select>
-            </div>
-            <div class="col-md-2">
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                    <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
-                </div>
             </div>
         </form>
     </div>
@@ -73,7 +67,7 @@ else
                 </div>
                 <div class="card-footer bg-transparent border-top-0 pb-3">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm">Edit</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">Edit</a>
                         <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
                     </div>
                 </div>
