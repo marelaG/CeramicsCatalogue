@@ -10,12 +10,10 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Repositories
         private static readonly List<ICeramicItem> _items = new List<ICeramicItem>();
         private static int _nextId = 1;
         
-        // We need access to producers to simulate the join/navigation property
         private readonly ProducerRepositoryMock _producerRepo = new ProducerRepositoryMock();
 
         static CeramicRepositoryMock()
         {
-            // Initialize with some mock data if empty
             if (!_items.Any())
             {
                 _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Mug", Description = "Classic mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 });
