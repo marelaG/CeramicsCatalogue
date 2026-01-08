@@ -2,7 +2,6 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
-using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Commands;
 using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views;
@@ -102,7 +101,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 
         public void AddNewProduct()
         {
-            var newItem = new CeramicItemDo(); 
+            var newItem = Bootstrapper.CreateCeramicItem();
             var producers = _producerService.GetAll();
             
             var editor = new ProductEditorWindow(newItem, producers);

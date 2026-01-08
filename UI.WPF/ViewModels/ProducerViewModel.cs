@@ -1,7 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
-using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views;
 
@@ -36,7 +35,11 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 
         public void AddNewProducer()
         {
-            var newProducer = new ProducerDo();
+            // We need to create a new instance of IProducer. 
+            // Since we don't have reference to DAO (where ProducerDo is), we need a factory or use the service/bootstrapper.
+            // For now, let's assume Bootstrapper can provide a new instance or we use a factory interface.
+            
+            var newProducer = Bootstrapper.CreateProducer();
             var editor = new ProducerEditorWindow(newProducer);
             if (editor.ShowDialog() == true)
             {

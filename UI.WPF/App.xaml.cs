@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using GancewskaKerebinska.CeramicsCatalogue.DAO.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF
 {
@@ -10,14 +8,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF
         {
             base.OnStartup(e);
 
-            using (var context = new CeramicsDbContext())
-            {
-                // Ensure the database is created and schema is up to date
-                // For development purposes, we can delete and recreate the database to apply changes
-                // In production, use Migrations
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-            }
+            Bootstrapper.InitializeDatabase();
 
             var mainWindow = new MainWindow();
             mainWindow.Show();

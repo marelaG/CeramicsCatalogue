@@ -11,8 +11,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BL\BL.csproj" />
-      <ProjectReference Include="..\DAO\DAO.csproj" />
       <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     </ItemGroup>
+
+    <Target Name="CopyDAO" AfterTargets="Build">
+        <Copy SourceFiles="$(SolutionDir)DAO\bin\$(Configuration)\net9.0\DAO.dll" DestinationFolder="$(OutDir)" />
+    </Target>
 
 </Project>
