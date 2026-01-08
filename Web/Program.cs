@@ -1,4 +1,5 @@
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
+using GancewskaKerebinska.CeramicsCatalogue.DAO.Context;
 using GancewskaKerebinska.CeramicsCatalogue.DAO.Repositories;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 
@@ -8,9 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Register Repositories
-// Note: In a real scenario, we might want to use Dependency Injection for the DbContext as well,
-// but since the current DAO implementation instantiates DbContext internally (using new CeramicsDbContext()),
-// we can just register the repositories as Transient or Scoped.
 builder.Services.AddTransient<ICeramicRepository, CeramicRepositoryEf>();
 builder.Services.AddTransient<IProducerRepository, ProducerRepositoryEf>();
 
@@ -19,6 +17,23 @@ builder.Services.AddTransient<CeramicService>();
 builder.Services.AddTransient<ProducerService>();
 
 var app = builder.Build();
+
+// Initialize Database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try 
+    {
+        // Ensure database is created
+        using var context = new CeramicsDbContext();
+        context.Database.EnsureCreated();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred creating the DB.");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
