@@ -4,55 +4,76 @@
     ViewData["Title"] = "Products";
 }
 
-<h1>Products</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Products</h1>
+    <a asp-action="Create" class="btn btn-primary">Create New Product</a>
+</div>
 
-<div class="row mb-3">
-    <div class="col-md-8">
-        <form asp-action="Index" method="get" class="d-flex gap-2">
-            <input type="text" name="searchString" class="form-control" placeholder="Search by name..." value="@Context.Request.Query["searchString"]" />
-            <select name="producerId" class="form-control" asp-items="ViewBag.Producers">
-                <option value="">-- All Producers --</option>
-            </select>
-            <button type="submit" class="btn btn-outline-primary">Filter</button>
-            <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+<div class="card mb-4 border-0 shadow-sm bg-light">
+    <div class="card-body">
+        <form asp-action="Index" method="get" class="row g-3 align-items-end">
+            <div class="col-md-6">
+                <label class="form-label">Search</label>
+                <input type="text" name="searchString" class="form-control" placeholder="Search by name..." value="@Context.Request.Query["searchString"]" />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Producer</label>
+                <select name="producerId" class="form-select" asp-items="ViewBag.Producers">
+                    <option value="">-- All Producers --</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+                </div>
+            </div>
         </form>
-    </div>
-    <div class="col-md-4 text-end">
-        <a asp-action="Create" class="btn btn-primary">Create New</a>
     </div>
 </div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Firing</th>
-            <th>Producer</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @if (!string.IsNullOrEmpty(item.ImagePath))
-                {
-                    <img src="@item.ImagePath" style="max-height: 50px; max-width: 50px;" />
-                }
-            </td>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>@item.CeramicType</td>
-            <td>@item.FiringType</td>
-            <td>@item.Producer?.Name</td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-            </td>
-        </tr>
+@if (!Model.Any())
+{
+    <div class="alert alert-info" role="alert">
+        No products found.
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var item in Model) {
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="position-relative" style="height: 200px; overflow: hidden; background-color: #f8f9fa;">
+                    @if (!string.IsNullOrEmpty(item.ImagePath))
+                    {
+                        <img src="@item.ImagePath" class="card-img-top w-100 h-100" alt="@item.Name" style="object-fit: cover;">
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center justify-content-center h-100 text-muted">
+                            <span>No Image</span>
+                        </div>
+                    }
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-primary">@item.Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@item.Producer?.Name</h6>
+                    <p class="card-text text-truncate" title="@item.Description">@item.Description</p>
+                    
+                    <div class="d-flex justify-content-between small text-muted mt-3">
+                        <span><strong class="text-dark">Type:</strong> @item.CeramicType</span>
+                        <span><strong class="text-dark">Firing:</strong> @item.FiringType</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 pb-3">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+}
