@@ -26,12 +26,12 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Context
             );
 
             modelBuilder.Entity<CeramicItemDo>().HasData(
-                new CeramicItemDo { Id = 1, Name = "Mug", ImagePath = null, Description = "Classic mug", Price = 15.0, CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 },
-                new CeramicItemDo { Id = 2, Name = "Plate", ImagePath = null, Description = "Dinner plate", Price = 20.0, CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 },
-                new CeramicItemDo { Id = 3, Name = "Vase", ImagePath = null, Description = "Decorative vase", Price = 45.0, CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 },
-                new CeramicItemDo { Id = 4, Name = "Blue Fluted Plain Plate", ImagePath = null, Description = "Hand painted", Price = 80.0, CeramicType = CeramicType.Plate, FiringType = FiringType.Porcelain, ProducerId = 2 },
-                new CeramicItemDo { Id = 5, Name = "Onion Pattern Bowl", ImagePath = null, Description = "Traditional pattern", Price = 60.0, CeramicType = CeramicType.Bowl, FiringType = FiringType.Porcelain, ProducerId = 3 },
-                new CeramicItemDo { Id = 6, Name = "Jasperware Vase", ImagePath = null, Description = "Iconic blue", Price = 120.0, CeramicType = CeramicType.Vase, FiringType = FiringType.Stoneware, ProducerId = 4 }
+                new CeramicItemDo { Id = 1, Name = "Mug", ImagePath = null, Description = "Classic mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 },
+                new CeramicItemDo { Id = 2, Name = "Plate", ImagePath = null, Description = "Dinner plate", CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 },
+                new CeramicItemDo { Id = 3, Name = "Vase", ImagePath = null, Description = "Decorative vase", CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 },
+                new CeramicItemDo { Id = 4, Name = "Blue Fluted Plain Plate", ImagePath = null, Description = "Hand painted", CeramicType = CeramicType.Plate, FiringType = FiringType.Porcelain, ProducerId = 2 },
+                new CeramicItemDo { Id = 5, Name = "Onion Pattern Bowl", ImagePath = null, Description = "Traditional pattern", CeramicType = CeramicType.Bowl, FiringType = FiringType.Porcelain, ProducerId = 3 },
+                new CeramicItemDo { Id = 6, Name = "Jasperware Vase", ImagePath = null, Description = "Iconic blue", CeramicType = CeramicType.Vase, FiringType = FiringType.Stoneware, ProducerId = 4 }
             );
         }
     }

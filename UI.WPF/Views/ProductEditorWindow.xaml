@@ -16,7 +16,6 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -35,27 +34,23 @@
             <TextBox x:Name="DescriptionTextBox" Grid.Row="2" Grid.Column="1" Style="{StaticResource EditorTextBoxStyle}" Margin="0,0,0,16"
                      Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Content="Price" Grid.Row="3" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16"/>
-            <TextBox x:Name="PriceTextBox" Grid.Row="3" Grid.Column="1" Style="{StaticResource EditorTextBoxStyle}" Margin="0,0,0,16"
-                     Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
-
-            <Label Content="Image Path" Grid.Row="4" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16"/>
-            <TextBox x:Name="ImagePathTextBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource EditorTextBoxStyle}" Margin="0,0,0,16"
+            <Label Content="Image Path" Grid.Row="3" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16"/>
+            <TextBox x:Name="ImagePathTextBox" Grid.Row="3" Grid.Column="1" Style="{StaticResource EditorTextBoxStyle}" Margin="0,0,0,16"
                      Text="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Label Content="Ceramic Type" Grid.Row="5" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16"/>
-            <ComboBox x:Name="TypeComboBox" Grid.Row="5" Grid.Column="1" Style="{StaticResource EditorComboBoxStyle}" Margin="0,0,0,16"
+            <Label Content="Ceramic Type" Grid.Row="4" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16"/>
+            <ComboBox x:Name="TypeComboBox" Grid.Row="4" Grid.Column="1" Style="{StaticResource EditorComboBoxStyle}" Margin="0,0,0,16"
                       ItemsSource="{Binding CeramicTypes}" SelectedItem="{Binding CeramicType}"/>
 
-            <Label Content="Firing Type" Grid.Row="6" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16"/>
-            <ComboBox x:Name="FiringComboBox" Grid.Row="6" Grid.Column="1" Style="{StaticResource EditorComboBoxStyle}" Margin="0,0,0,16"
+            <Label Content="Firing Type" Grid.Row="5" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16"/>
+            <ComboBox x:Name="FiringComboBox" Grid.Row="5" Grid.Column="1" Style="{StaticResource EditorComboBoxStyle}" Margin="0,0,0,16"
                       ItemsSource="{Binding FiringTypes}" SelectedItem="{Binding FiringType}"/>
 
-            <Label Content="Producer" Grid.Row="7" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16" VerticalAlignment="Top"/>
-            <ComboBox x:Name="ProducerComboBox" Grid.Row="7" Grid.Column="1" Style="{StaticResource EditorComboBoxStyle}" Margin="0,0,0,16" VerticalAlignment="Top"
+            <Label Content="Producer" Grid.Row="6" Grid.Column="0" Style="{StaticResource EditorLabelStyle}" Margin="0,0,16,16" VerticalAlignment="Top"/>
+            <ComboBox x:Name="ProducerComboBox" Grid.Row="6" Grid.Column="1" Style="{StaticResource EditorComboBoxStyle}" Margin="0,0,0,16" VerticalAlignment="Top"
                       ItemsSource="{Binding Producers}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedProducer, ValidatesOnDataErrors=True}"/>
 
-            <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <StackPanel Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                 <Button Content="Cancel" IsCancel="True" Margin="0,0,12,0" Style="{StaticResource ActionButtonStyle}"/>
                 <Button Content="Save" Click="Save_Click" Style="{StaticResource PrimaryActionButtonStyle}" Width="80"/>
             </StackPanel>

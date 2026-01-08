@@ -71,7 +71,6 @@
                 
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat=C}" Width="100"/>
                 <DataGridTextColumn Header="Producer" Binding="{Binding Producer.Name}" Width="*"/>
                 <DataGridTextColumn Header="Ceramic Type" Binding="{Binding CeramicType}" Width="150"/>
                 <DataGridTextColumn Header="Firing Type" Binding="{Binding FiringType}" Width="150"/>

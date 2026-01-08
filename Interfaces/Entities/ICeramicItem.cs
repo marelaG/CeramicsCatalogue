@@ -7,7 +7,6 @@ public interface ICeramicItem
     string Name { get; set; }
     string? ImagePath { get; set; }
     string? Description { get; set; }
-    double? Price { get; set; }
     CeramicType CeramicType { get; set; }
     FiringType FiringType { get; set; }
     int ProducerId { get; set; }
