@@ -20,7 +20,7 @@ body {
 
 .navbar-brand {
     font-weight: 600;
-    color: #111827 !important;
+    color: rgb(31, 49, 128) !important;
 }
 
 .nav-link {
@@ -29,7 +29,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #111827 !important;
+    color: rgb(31, 49, 128) !important;
 }
 
 /* Container for main content */
@@ -66,13 +66,13 @@ h1 {
 }
 
 .btn-primary {
-    background-color: #4F46E5; /* Indigo-600 used in WPF */
-    border-color: #4F46E5;
+    background-color: rgb(31, 49, 128);
+    border-color: rgb(31, 49, 128);
 }
 
 .btn-primary:hover {
-    background-color: #4338CA;
-    border-color: #4338CA;
+    background-color: rgb(25, 39, 102);
+    border-color: rgb(25, 39, 102);
 }
 
 .btn-secondary {
@@ -140,8 +140,8 @@ h1 {
 }
 
 .form-control:focus, .form-select:focus {
-    border-color: #4F46E5;
-    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    border-color: rgb(31, 49, 128);
+    box-shadow: 0 0 0 2px rgba(31, 49, 128, 0.2);
 }
 
 label {
@@ -158,4 +158,19 @@ footer {
     border-top: 1px solid #E5E7EB;
     font-size: 0.875rem;
     width: 100%;
+}
+
+/* Text colors */
+.text-primary {
+    color: rgb(31, 49, 128) !important;
+}
+
+.btn-outline-primary {
+    color: rgb(31, 49, 128);
+    border-color: rgb(31, 49, 128);
+}
+
+.btn-outline-primary:hover {
+    background-color: rgb(31, 49, 128);
+    color: #fff;
 }
