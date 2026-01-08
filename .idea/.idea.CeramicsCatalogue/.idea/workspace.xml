@@ -9,12 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DAOMock/DAOMock.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DAOMock/Entities/CeramicItemMock.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DAOMock/Entities/ProducerMock.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DAOMock/Repositories/CeramicRepositoryMock.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DAOMock/Repositories/ProducerRepositoryMock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CeramicsCatalogue.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CeramicsCatalogue.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAO/DAO.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/DAO.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/App.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI.WPF/UI.WPF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/UI.WPF.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +109,7 @@
       <workItem from="1764878867849" duration="1459000" />
       <workItem from="1766143114687" duration="2190000" />
       <workItem from="1766232461303" duration="2903000" />
-      <workItem from="1767890068513" duration="2371000" />
+      <workItem from="1767890068513" duration="3144000" />
     </task>
     <servers />
   </component>
