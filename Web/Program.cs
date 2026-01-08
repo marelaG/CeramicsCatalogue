@@ -26,6 +26,8 @@ using (var scope = app.Services.CreateScope())
     {
         // Ensure database is created
         using var context = new CeramicsDbContext();
+        // Force database deletion and recreation to ensure schema matches model
+        context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
     }
     catch (Exception ex)
@@ -54,4 +56,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+app.Run("http://localhost:5001");

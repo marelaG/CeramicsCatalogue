@@ -1,6 +1,7 @@
 using GancewskaKerebinska.CeramicsCatalogue.DAOMock.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
+using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Repositories
 {
@@ -11,6 +12,20 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Repositories
         
         // We need access to producers to simulate the join/navigation property
         private readonly ProducerRepositoryMock _producerRepo = new ProducerRepositoryMock();
+
+        static CeramicRepositoryMock()
+        {
+            // Initialize with some mock data if empty
+            if (!_items.Any())
+            {
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Mug", Description = "Classic mug", Price = 15.0, CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Plate", Description = "Dinner plate", Price = 20.0, CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Vase", Description = "Decorative vase", Price = 45.0, CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Blue Fluted Plain Plate", Description = "Hand painted", Price = 80.0, CeramicType = CeramicType.Plate, FiringType = FiringType.Porcelain, ProducerId = 2 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Onion Pattern Bowl", Description = "Traditional pattern", Price = 60.0, CeramicType = CeramicType.Bowl, FiringType = FiringType.Porcelain, ProducerId = 3 });
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Jasperware Vase", Description = "Iconic blue", Price = 120.0, CeramicType = CeramicType.Vase, FiringType = FiringType.Stoneware, ProducerId = 4 });
+            }
+        }
 
         public IEnumerable<ICeramicItem> GetAll()
         {
@@ -52,6 +67,8 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Repositories
             {
                 existing.Name = item.Name;
                 existing.ImagePath = item.ImagePath;
+                existing.Description = item.Description;
+                existing.Price = item.Price;
                 existing.CeramicType = item.CeramicType;
                 existing.FiringType = item.FiringType;
                 existing.ProducerId = item.ProducerId;
