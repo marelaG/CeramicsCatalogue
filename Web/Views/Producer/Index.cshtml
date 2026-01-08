@@ -1,32 +1,70 @@
 @model IEnumerable<GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities.IProducer>
+@using GancewskaKerebinska.CeramicsCatalogue.Core.Enums
 
 @{
     ViewData["Title"] = "Producers";
+    var availableCountries = ViewBag.AvailableCountries as IEnumerable<Country>;
 }
 
-<h1>Producers</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Producers</h1>
+    <a asp-action="Create" class="btn btn-primary d-flex align-items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+        </svg>
+        New
+    </a>
+</div>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
-</p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Country</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Country</td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="card mb-4 border-0 shadow-sm bg-light">
+    <div class="card-body">
+        <form asp-action="Index" method="get" class="row g-3 align-items-end">
+            <div class="col-md-8">
+                <label class="form-label">Search</label>
+                <input type="text" name="searchString" class="form-control" placeholder="Search by name and press enter..." value="@Context.Request.Query["searchString"]" />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Country</label>
+                <select name="country" class="form-select" onchange="this.form.submit()">
+                    <option value="">-- All Countries --</option>
+                    @if (availableCountries != null)
+                    {
+                        foreach (var country in availableCountries)
+                        {
+                            var isSelected = Context.Request.Query["country"] == ((int)country).ToString() ? "selected" : "";
+                            <!option value="@((int)country)" @isSelected>@country</!option>
+                        }
+                    }
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0 align-middle">
+                <thead class="bg-light">
+                    <tr>
+                        <th class="border-0 py-3 ps-4">Name</th>
+                        <th class="border-0 py-3">Country</th>
+                        <th class="border-0 py-3 text-end pe-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+            @foreach (var item in Model) {
+                    <tr>
+                        <td class="ps-4 fw-medium">@item.Name</td>
+                        <td>@item.Country</td>
+                        <td class="text-end pe-4">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm me-1">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

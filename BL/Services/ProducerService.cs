@@ -1,3 +1,4 @@
+using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Repositories;
 
@@ -15,6 +16,29 @@ namespace GancewskaKerebinska.CeramicsCatalogue.BL.Services
         public IEnumerable<IProducer> GetAll()
         {
             return _repository.GetAll();
+        }
+
+        public IEnumerable<IProducer> Search(string searchString)
+        {
+            if (string.IsNullOrWhiteSpace(searchString))
+                return GetAll();
+
+            return _repository.GetAll()
+                .Where(p => p.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public IEnumerable<IProducer> GetByCountry(Country country)
+        {
+            return _repository.GetAll()
+                .Where(p => p.Country == country);
+        }
+
+        public IEnumerable<Country> GetAvailableCountries()
+        {
+            return _repository.GetAll()
+                .Select(p => p.Country)
+                .Distinct()
+                .OrderBy(c => c);
         }
 
         public void Add(IProducer producer)

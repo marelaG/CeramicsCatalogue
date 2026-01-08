@@ -29,7 +29,8 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
                 products = _service.GetByProducer(producerId.Value);
             }
 
-            ViewBag.Producers = new SelectList(_producerService.GetAll(), "Id", "Name");
+            // Pass the selected value (producerId) to the SelectList constructor
+            ViewBag.Producers = new SelectList(_producerService.GetAll(), "Id", "Name", producerId);
             return View(products);
         }
 
