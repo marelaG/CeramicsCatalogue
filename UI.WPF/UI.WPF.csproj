@@ -14,20 +14,9 @@
       <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
-    </ItemGroup>
-
-    <Target Name="CopyDaoDll" AfterTargets="Build">
-        <ItemGroup>
-            <DaoSourceFile Include="..\DAO\bin\$(Configuration)\net9.0\DAO.dll" />
-        </ItemGroup>
-
-        <Message Text="Kopiowanie DAO.dll do folderu wyjściowego UI..." Importance="high" />
-
-        <Copy SourceFiles="@(DaoSourceFile)"
-              DestinationFolder="$(OutputPath)"
-              SkipUnchangedFiles="true" />
+    <Target Name="CopyDAO" AfterTargets="Build">
+        <Copy SourceFiles="$(SolutionDir)DAO\bin\$(Configuration)\net9.0\DAO.dll" DestinationFolder="$(OutDir)" />
+        <Copy SourceFiles="$(SolutionDir)DAOMock\bin\$(Configuration)\net9.0\DAOMock.dll" DestinationFolder="$(OutDir)" />
     </Target>
 
 </Project>
