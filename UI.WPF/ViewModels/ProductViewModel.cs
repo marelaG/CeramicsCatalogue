@@ -2,7 +2,6 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
-using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Commands;
 using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views;
@@ -17,15 +16,15 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         public ObservableCollection<ICeramicItem> Products { get; set; }
         public ObservableCollection<IProducer> Producers { get; set; }
 
-        private ICeramicItem _selectedProduct;
-        public ICeramicItem SelectedProduct
+        private ICeramicItem? _selectedProduct;
+        public ICeramicItem? SelectedProduct
         {
             get => _selectedProduct;
             set { _selectedProduct = value; OnPropertyChanged(); }
         }
 
-        private IProducer _selectedProducerFilter;
-        public IProducer SelectedProducerFilter
+        private IProducer? _selectedProducerFilter;
+        public IProducer? SelectedProducerFilter
         {
             get => _selectedProducerFilter;
             set 
@@ -95,14 +94,14 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             }
         }
         
-        private void ClearFilter(object parameter)
+        private void ClearFilter(object? parameter)
         {
             SelectedProducerFilter = null;
         }
 
         public void AddNewProduct()
         {
-            var newItem = new CeramicItemDo(); 
+            var newItem = Bootstrapper.CreateCeramicItem();
             var producers = _producerService.GetAll();
             
             var editor = new ProductEditorWindow(newItem, producers);

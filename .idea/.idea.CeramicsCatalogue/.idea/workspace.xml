@@ -8,7 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="" />
+    <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/UI.WPF/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,23 +60,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.UI.WPF.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;niceUi&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.UI.WPF.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "fixes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="UI.WPF" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -105,6 +112,7 @@
       <workItem from="1764878867849" duration="1459000" />
       <workItem from="1766143114687" duration="2190000" />
       <workItem from="1766232461303" duration="2903000" />
+      <workItem from="1767890068513" duration="3999000" />
     </task>
     <servers />
   </component>

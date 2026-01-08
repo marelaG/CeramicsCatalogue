@@ -1,37 +1,33 @@
 using System.Windows;
-using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
+using System.Windows.Controls;
+using System.Windows.Data;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views
 {
     public partial class ProducerEditorWindow : Window
     {
-        public IProducer Producer { get; }
+        private readonly ProducerEditorViewModel _viewModel;
 
         public ProducerEditorWindow(IProducer producer)
         {
             InitializeComponent();
-            Producer = producer;
-
-            CountryComboBox.ItemsSource = Enum.GetValues(typeof(Country));
-
-            NameTextBox.Text = Producer.Name;
-            CountryComboBox.SelectedItem = Producer.Country;
+            _viewModel = new ProducerEditorViewModel(producer);
+            DataContext = _viewModel;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            if (_viewModel.IsValid)
             {
-                MessageBox.Show("Name is required.", "Error");
-                return;
+                DialogResult = true;
+                Close();
             }
-
-            Producer.Name = NameTextBox.Text;
-            Producer.Country = (Country)CountryComboBox.SelectedItem;
-
-            DialogResult = true;
-            Close();
+            else
+            {
+                MessageBox.Show("Please correct the errors before saving.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }
