@@ -10,6 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CeramicsCatalogue/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CeramicsCatalogue.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CeramicsCatalogue.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/UI.WPF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/UI.WPF.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +109,7 @@
       <workItem from="1764878867849" duration="1459000" />
       <workItem from="1766143114687" duration="2190000" />
       <workItem from="1766232461303" duration="2903000" />
-      <workItem from="1767890068513" duration="1018000" />
+      <workItem from="1767890068513" duration="1990000" />
     </task>
     <servers />
   </component>
