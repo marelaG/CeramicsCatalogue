@@ -1,61 +1,33 @@
 using System.Windows;
-using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
+using System.Windows.Controls;
+using System.Windows.Data;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels;
 
 namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.Views
 {
     public partial class ProductEditorWindow : Window
     {
-        public ICeramicItem Item { get; private set; }
+        private readonly ProductEditorViewModel _viewModel;
 
         public ProductEditorWindow(ICeramicItem item, IEnumerable<IProducer> producers)
         {
             InitializeComponent();
-            Item = item;
-
-            TypeComboBox.ItemsSource = Enum.GetValues(typeof(CeramicType));
-            FiringComboBox.ItemsSource = Enum.GetValues(typeof(FiringType));
-            ProducerComboBox.ItemsSource = producers;
-
-            NameTextBox.Text = Item.Name;
-            ImagePathTextBox.Text = Item.ImagePath;
-            TypeComboBox.SelectedItem = Item.CeramicType;
-            FiringComboBox.SelectedItem = Item.FiringType;
-            
-            foreach (IProducer p in ProducerComboBox.ItemsSource)
-            {
-                if (p.Id == Item.ProducerId)
-                {
-                    ProducerComboBox.SelectedItem = p;
-                    break;
-                }
-            }
+            _viewModel = new ProductEditorViewModel(item, producers);
+            DataContext = _viewModel;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NameTextBox.Text))
+            if (_viewModel.IsValid)
             {
-                MessageBox.Show("Name cannot be empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                DialogResult = true;
+                Close();
             }
-
-            if (ProducerComboBox.SelectedItem == null)
+            else
             {
-                MessageBox.Show("Please select a producer.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                MessageBox.Show("Please correct the errors before saving.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
-            Item.Name = NameTextBox.Text;
-            Item.ImagePath = ImagePathTextBox.Text;
-            Item.CeramicType = (CeramicType)TypeComboBox.SelectedItem;
-            Item.FiringType = (FiringType)FiringComboBox.SelectedItem;
-            
-            var selectedProducer = (IProducer)ProducerComboBox.SelectedItem;
-            Item.ProducerId = selectedProducer.Id;
-
-            DialogResult = true;
-            Close();
         }
     }
 }

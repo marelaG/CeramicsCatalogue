@@ -16,18 +16,22 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Template">
+            <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                CornerRadius="4">
-                            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}"/>
-                        </Border>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder/>
+                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" FontSize="12"/>
+                        </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style TargetType="ComboBox">
             <Setter Property="Padding" Value="8,6"/>
@@ -80,10 +84,12 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="Name:" Grid.Row="0" Grid.Column="0" Margin="0,0,0,15"/>
-            <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,15"/>
+            <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,15"
+                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
             <Label Content="Country:" Grid.Row="1" Grid.Column="0" Margin="0,0,0,15"/>
-            <ComboBox x:Name="CountryComboBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,15"/>
+            <ComboBox x:Name="CountryComboBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,15"
+                      ItemsSource="{Binding Countries}" SelectedItem="{Binding Country}"/>
 
             <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                 <Button Content="Cancel" IsCancel="True" Margin="0,0,10,0"/>
