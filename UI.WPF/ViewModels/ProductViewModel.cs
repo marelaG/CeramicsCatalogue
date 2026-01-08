@@ -16,15 +16,15 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         public ObservableCollection<ICeramicItem> Products { get; set; }
         public ObservableCollection<IProducer> Producers { get; set; }
 
-        private ICeramicItem _selectedProduct;
-        public ICeramicItem SelectedProduct
+        private ICeramicItem? _selectedProduct;
+        public ICeramicItem? SelectedProduct
         {
             get => _selectedProduct;
             set { _selectedProduct = value; OnPropertyChanged(); }
         }
 
-        private IProducer _selectedProducerFilter;
-        public IProducer SelectedProducerFilter
+        private IProducer? _selectedProducerFilter;
+        public IProducer? SelectedProducerFilter
         {
             get => _selectedProducerFilter;
             set 
@@ -94,7 +94,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             }
         }
         
-        private void ClearFilter(object parameter)
+        private void ClearFilter(object? parameter)
         {
             SelectedProducerFilter = null;
         }

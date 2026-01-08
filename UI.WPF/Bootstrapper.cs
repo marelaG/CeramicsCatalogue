@@ -9,13 +9,18 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF
 {
     public static class Bootstrapper
     {
-        private static Assembly _daoAssembly;
+        private static Assembly? _daoAssembly;
 
         private static Assembly GetDaoAssembly()
         {
             if (_daoAssembly == null)
             {
                 var assemblyName = ConfigurationManager.AppSettings["DaoAssembly"];
+                if (string.IsNullOrEmpty(assemblyName))
+                {
+                    throw new ConfigurationErrorsException("DaoAssembly setting is missing in App.config");
+                }
+
                 try 
                 {
                     _daoAssembly = Assembly.Load(assemblyName);

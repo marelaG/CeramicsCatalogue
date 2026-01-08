@@ -5,17 +5,17 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged, IDataErrorInfo
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         // IDataErrorInfo implementation
-        public string Error => null;
+        public string? Error => null;
 
-        public string this[string columnName]
+        public string? this[string columnName]
         {
             get
             {
@@ -23,13 +23,13 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             }
         }
 
-        protected virtual string GetValidationError(string propertyName)
+        protected virtual string? GetValidationError(string propertyName)
         {
             return null;
         }
         
         // Helper to check if the object is valid
-        public bool IsValid
+        public virtual bool IsValid
         {
             get
             {

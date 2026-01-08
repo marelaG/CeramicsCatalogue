@@ -9,9 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b87fd5d3-ab94-4623-980a-3f3567a75746" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DAO/DAO.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/DAO.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI.WPF/UI.WPF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/UI.WPF.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerEditorWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProducerView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductEditorWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/UI.WPF/Views/ProductView.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +112,7 @@
       <workItem from="1764878867849" duration="1459000" />
       <workItem from="1766143114687" duration="2190000" />
       <workItem from="1766232461303" duration="2903000" />
-      <workItem from="1767890068513" duration="3144000" />
+      <workItem from="1767890068513" duration="3999000" />
     </task>
     <servers />
   </component>

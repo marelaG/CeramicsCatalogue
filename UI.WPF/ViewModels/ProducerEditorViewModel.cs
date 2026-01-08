@@ -36,7 +36,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             _producer = producer;
         }
 
-        protected override string GetValidationError(string propertyName)
+        protected override string? GetValidationError(string propertyName)
         {
             if (propertyName == nameof(Name))
             {
@@ -48,6 +48,6 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             return null;
         }
         
-        public bool IsValid => string.IsNullOrEmpty(GetValidationError(nameof(Name)));
+        public override bool IsValid => string.IsNullOrEmpty(GetValidationError(nameof(Name)));
     }
 }

@@ -8,7 +8,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         private object _currentView;
         private readonly ProductViewModel _productViewModel;
         private readonly ProducerViewModel _producerViewModel;
-        private string _searchText;
+        private string _searchText = string.Empty;
 
         public object CurrentView
         {
@@ -49,40 +49,40 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             DeleteCommand = new RelayCommand(Delete);
             SearchCommand = new RelayCommand(Search);
 
-            CurrentView = _productViewModel;
+            _currentView = _productViewModel;
         }
 
-        private void ChangeView(object parameter)
+        private void ChangeView(object? parameter)
         {
-            if (parameter.ToString() == "Products")
+            if (parameter?.ToString() == "Products")
             {
                 CurrentView = _productViewModel;
             }
-            else if (parameter.ToString() == "Producers")
+            else if (parameter?.ToString() == "Producers")
             {
                 CurrentView = _producerViewModel;
             }
         }
 
-        private void Add(object parameter)
+        private void Add(object? parameter)
         {
             if (CurrentView is ProductViewModel productVM) productVM.AddNewProduct();
             else if (CurrentView is ProducerViewModel producerVM) producerVM.AddNewProducer();
         }
 
-        private void Modify(object parameter)
+        private void Modify(object? parameter)
         {
             if (CurrentView is ProductViewModel productVM) productVM.EditSelectedProduct();
             else if (CurrentView is ProducerViewModel producerVM) producerVM.EditSelectedProducer(); 
         }
 
-        private void Delete(object parameter)
+        private void Delete(object? parameter)
         {
             if (CurrentView is ProductViewModel productVM) productVM.DeleteSelectedProduct();
             else if (CurrentView is ProducerViewModel producerVM) producerVM.DeleteSelectedProducer(); 
         }
 
-        private void Search(object parameter)
+        private void Search(object? parameter)
         {
             if (CurrentView is ProductViewModel productVM)
             {

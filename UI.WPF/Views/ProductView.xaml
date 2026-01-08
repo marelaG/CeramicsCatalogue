@@ -7,84 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <!-- Modern DataGrid Style -->
-        <Style TargetType="DataGrid">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="RowHeaderWidth" Value="0"/>
-            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
-            <Setter Property="HorizontalGridLinesBrush" Value="#E5E7EB"/>
-            <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
-            <Setter Property="HeadersVisibility" Value="Column"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
-            <Setter Property="CanUserAddRows" Value="False"/>
-            <Setter Property="CanUserResizeRows" Value="False"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="RowHeight" Value="40"/>
-            <Setter Property="Padding" Value="10"/>
-        </Style>
-
-        <!-- Column Header Style -->
-        <Style TargetType="DataGridColumnHeader">
-            <Setter Property="Background" Value="#F9FAFB"/>
-            <Setter Property="Foreground" Value="#6B7280"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Padding" Value="12,10"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-            <Setter Property="BorderBrush" Value="#E5E7EB"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="DataGridColumnHeader">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                              VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Cell Style -->
-        <Style TargetType="DataGridCell">
-            <Setter Property="Padding" Value="12,0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="DataGridCell">
-                        <Border Padding="{TemplateBinding Padding}" 
-                                Background="{TemplateBinding Background}" 
-                                BorderBrush="Transparent" 
-                                BorderThickness="0">
-                            <ContentPresenter VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#EEF2FF"/>
-                    <Setter Property="Foreground" Value="#4F46E5"/>
-                    <Setter Property="FontWeight" Value="Medium"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <!-- ComboBox Style -->
-        <Style TargetType="ComboBox">
-            <Setter Property="Padding" Value="8,6"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="#D1D5DB"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-        </Style>
-        
         <!-- Filter Button Style -->
         <Style TargetType="Button">
             <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="#D1D5DB"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="10,6"/>
             <Setter Property="Margin" Value="8,0,0,0"/>
@@ -116,13 +42,14 @@
         </Grid.RowDefinitions>
 
         <!-- Filter Bar -->
-        <Border Grid.Row="0" Background="#F9FAFB" BorderBrush="#E5E7EB" BorderThickness="0,0,0,1" Padding="16,12">
+        <Border Grid.Row="0" Background="#F9FAFB" BorderBrush="{StaticResource BorderColor}" BorderThickness="0,0,0,1" Padding="16,12">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Filter by Producer:" VerticalAlignment="Center" Foreground="#374151" FontWeight="Medium" Margin="0,0,8,0"/>
+                <TextBlock Text="Filter by Producer:" VerticalAlignment="Center" Foreground="{StaticResource TextPrimary}" FontWeight="Medium" Margin="0,0,8,0"/>
                 <ComboBox ItemsSource="{Binding Producers}" 
                           SelectedItem="{Binding SelectedProducerFilter}"
                           DisplayMemberPath="Name"
-                          Width="200"/>
+                          Width="200"
+                          Style="{StaticResource EditorComboBoxStyle}"/>
                 <Button Content="Clear Filter" Command="{Binding ClearFilterCommand}"/>
             </StackPanel>
         </Border>

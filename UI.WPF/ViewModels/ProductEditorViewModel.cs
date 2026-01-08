@@ -49,7 +49,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             }
         }
 
-        public IProducer SelectedProducer
+        public IProducer? SelectedProducer
         {
             get => Producers.FirstOrDefault(p => p.Id == _item.ProducerId);
             set
@@ -72,7 +72,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             Producers = producers;
         }
 
-        protected override string GetValidationError(string propertyName)
+        protected override string? GetValidationError(string propertyName)
         {
             if (propertyName == nameof(Name))
             {
@@ -89,6 +89,6 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
             return null;
         }
         
-        public bool IsValid => string.IsNullOrEmpty(GetValidationError(nameof(Name))) && SelectedProducer != null;
+        public override bool IsValid => string.IsNullOrEmpty(GetValidationError(nameof(Name))) && SelectedProducer != null;
     }
 }

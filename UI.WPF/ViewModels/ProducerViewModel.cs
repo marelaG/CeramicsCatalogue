@@ -12,8 +12,8 @@ namespace GancewskaKerebinska.CeramicsCatalogue.UI.WPF.ViewModels
         
         public ObservableCollection<IProducer> Producers { get; set; }
         
-        private IProducer _selectedProducer;
-        public IProducer SelectedProducer
+        private IProducer? _selectedProducer;
+        public IProducer? SelectedProducer
         {
             get => _selectedProducer;
             set { _selectedProducer = value; OnPropertyChanged(); }

@@ -6,7 +6,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Entities
     public class ProducerMock : IProducer
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public Country Country { get; set; }
     }
 }

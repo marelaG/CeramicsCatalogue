@@ -47,7 +47,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Repositories
 
         public void Update(ICeramicItem item)
         {
-            var existing = _items.FirstOrDefault(x => x.Id == item.Id);
+            var existing = (CeramicItemMock?)_items.FirstOrDefault(x => x.Id == item.Id);
             if (existing != null)
             {
                 existing.Name = item.Name;
