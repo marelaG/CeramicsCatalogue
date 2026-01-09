@@ -43,15 +43,33 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Repositories
         public void Add(ICeramicItem item)
         {
             using var ctx = new CeramicsDbContext();
-            ctx.CeramicItems.Add((CeramicItemDo)item);
+            var newItem = new CeramicItemDo
+            {
+                Name = item.Name,
+                ImagePath = item.ImagePath,
+                Description = item.Description,
+                CeramicType = item.CeramicType,
+                FiringType = item.FiringType,
+                ProducerId = item.ProducerId
+            };
+            ctx.CeramicItems.Add(newItem);
             ctx.SaveChanges();
         }
 
         public void Update(ICeramicItem item)
         {
             using var ctx = new CeramicsDbContext();
-            ctx.CeramicItems.Update((CeramicItemDo)item);
-            ctx.SaveChanges();
+            var existingItem = ctx.CeramicItems.Find(item.Id);
+            if (existingItem != null)
+            {
+                existingItem.Name = item.Name;
+                existingItem.ImagePath = item.ImagePath;
+                existingItem.Description = item.Description;
+                existingItem.CeramicType = item.CeramicType;
+                existingItem.FiringType = item.FiringType;
+                existingItem.ProducerId = item.ProducerId;
+                ctx.SaveChanges();
+            }
         }
 
         public void Delete(int id)

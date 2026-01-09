@@ -16,6 +16,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAOMock.Repositories
         {
             if (!_items.Any())
             {
+                _items.Add(new CeramicItemMock { Id = _nextId++, Name = "DAO MOCK MUG", ImagePath = "https://manufakturawboleslawcu.com/cdn/shop/files/IMG_3976_600x.jpg?v=1711186133", Description = "XXXXXX", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 });
                 _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Mug", ImagePath = "https://manufakturawboleslawcu.com/cdn/shop/files/IMG_3976_600x.jpg?v=1711186133", Description = "Classic mug", CeramicType = CeramicType.Mug, FiringType = FiringType.Porcelain, ProducerId = 1 });
                 _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Plate", ImagePath = "https://uniceramic.pl/wp-content/uploads/2024/03/Talerz-talerz-obiadowy-talerz-na-ciasto-talerzyk-deserowy-ceramika-boleslawiec-porcelana-boleslawiec-ceramika-boleslawiec-sklep-internetowy-zaklady-boleslawiec-boleslawiec-e-manufaktura-manufaktura-07.jpg", Description = "Dinner plate", CeramicType = CeramicType.Plate, FiringType = FiringType.Stoneware, ProducerId = 1 });
                 _items.Add(new CeramicItemMock { Id = _nextId++, Name = "Vase", ImagePath = "https://di2ponv0v5otw.cloudfront.net/posts/2024/12/08/67566fc56cb777d932032942/m_675670c9c9af8c3c0a0355af.jpeg", Description = "Decorative vase", CeramicType = CeramicType.Vase, FiringType = FiringType.Earthenware, ProducerId = 2 });
