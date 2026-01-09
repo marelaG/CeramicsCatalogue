@@ -15,15 +15,25 @@ namespace GancewskaKerebinska.CeramicsCatalogue.DAO.Repositories{
         public void Add(IProducer producer)
         {
             using var context = new CeramicsDbContext();
-            context.Producers.Add((ProducerDo)producer);
+            var newProducer = new ProducerDo
+            {
+                Name = producer.Name,
+                Country = producer.Country
+            };
+            context.Producers.Add(newProducer);
             context.SaveChanges();
         }
 
         public void Update(IProducer producer)
         {
             using var context = new CeramicsDbContext();
-            context.Producers.Update((ProducerDo)producer);
-            context.SaveChanges();
+            var existingProducer = context.Producers.Find(producer.Id);
+            if (existingProducer != null)
+            {
+                existingProducer.Name = producer.Name;
+                existingProducer.Country = producer.Country;
+                context.SaveChanges();
+            }
         }
 
         public void Delete(int id)

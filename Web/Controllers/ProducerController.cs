@@ -1,7 +1,7 @@
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
 using GancewskaKerebinska.CeramicsCatalogue.Core.Enums;
-using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
 using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -43,7 +43,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ProducerDo producer)
+        public IActionResult Create(ProducerViewModel producer)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, ProducerDo producer)
+        public IActionResult Edit(int id, ProducerViewModel producer)
         {
             if (id != producer.Id) return NotFound();
 

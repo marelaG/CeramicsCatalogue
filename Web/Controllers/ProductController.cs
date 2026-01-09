@@ -1,5 +1,6 @@
 using GancewskaKerebinska.CeramicsCatalogue.BL.Services;
-using GancewskaKerebinska.CeramicsCatalogue.DAO.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Interfaces.Entities;
+using GancewskaKerebinska.CeramicsCatalogue.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -42,7 +43,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CeramicItemDo item)
+        public IActionResult Create(CeramicItemViewModel item)
         {
             ModelState.Remove("Producer");
             if (ModelState.IsValid)
@@ -72,7 +73,7 @@ namespace GancewskaKerebinska.CeramicsCatalogue.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, CeramicItemDo item)
+        public IActionResult Edit(int id, CeramicItemViewModel item)
         {
             if (id != item.Id) return NotFound();
 
