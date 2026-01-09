@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 // Load DAO assembly via Reflection
 var daoAssemblyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DAOMock.dll");
-if (!File.Exists(daoAssemblyPath))
+/*if (!File.Exists(daoAssemblyPath))
 {
    
     
@@ -18,7 +18,7 @@ if (!File.Exists(daoAssemblyPath))
     {
         daoAssemblyPath = devPath;
     }
-}
+}*/
 
 Assembly daoAssembly;
 try 
